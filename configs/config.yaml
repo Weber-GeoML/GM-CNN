@@ -1,0 +1,13 @@
+defaults:
+  - exp: cifar10  # Default dataset configuration, can be overridden from the command line
+
+# Add any additional global configurations here if needed
+experiment:
+  seed: 42
+  
+# Weights & Biases configuration
+wandb:
+  project: "gmcnn-cifar"  # Project name
+  entity: null  # Your wandb username or team name (leave as null if using default)
+  mode: "online"  # Options: online, offline, disabled
+  log_model: true  # Whether to save model checkpoints to wandb

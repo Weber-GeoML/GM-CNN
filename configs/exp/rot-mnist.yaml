@@ -1,0 +1,32 @@
+# dataset: rot_mnist
+
+# Model
+model:
+  group: dihedral
+  order: 14
+  nbr: 3
+  lr: 0.004
+  dataset: rot-mnist
+  num_classes: 10
+  dropout: 0.3
+  blocks:
+    - num_layers: 1
+      out_channels: [120]
+    - num_layers: 1
+      out_channels: [120]
+
+# Data
+data:
+  path: ./data/rot_mnist/
+  batch_size: 128
+  num_workers: 8
+
+# Training
+trainer:
+  accelerator: gpu
+  devices: 1
+  max_epochs: 120
+  log_every_n_steps: 10
+
+overfit:
+  bs: 1

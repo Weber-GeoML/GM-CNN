@@ -1,0 +1,32 @@
+# dataset: cifar10
+
+# Model
+model:
+  group: cyclic
+  order: 32
+  nbr: 3
+  lr: 0.003
+  dataset: cifar10
+  num_classes: 10
+  dropout: 0.2
+  blocks:
+    - num_layers: 1
+      out_channels: [120]
+    - num_layers: 1
+      out_channels: [120]
+
+# Data
+data:
+  path: /n/home10/dettel/AgAtGM-CNN/GM-CNN/data/cifar10/
+  batch_size: 64  # Reduced from 256 to avoid memory issues
+  num_workers: 4  # Reduced to minimize memory usage
+
+# Training
+trainer:
+  accelerator: gpu
+  devices: 1
+  max_epochs: 100
+  log_every_n_steps: 10
+
+overfit:
+  bs: 1

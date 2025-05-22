@@ -1,0 +1,7 @@
+# Weights & Biases configuration
+project: gmcnn-cifar
+entity: null  # Replace with your entity (username or team name)
+tags:
+  - GMCNN
+  - CIFAR10
+log_model: true  # Save model checkpoints to wandb

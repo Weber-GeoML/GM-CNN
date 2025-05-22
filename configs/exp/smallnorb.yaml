@@ -1,0 +1,32 @@
+# dataset: smallnorb
+
+# Model
+model:
+  group: cyclic
+  order: 24
+  nbr: 3
+  lr: 0.003
+  dataset: smallnorb
+  num_classes: 4
+  dropout: 0.3
+  blocks:
+    - num_layers: 1
+      out_channels: [120]
+    - num_layers: 1
+      out_channels: [120]
+
+# Data
+data:
+  path: /path/to/data/smallnorb/
+  batch_size: 256
+  num_workers: 8
+
+# Training
+trainer:
+  accelerator: gpu
+  devices: 1
+  max_epochs: 120
+  log_every_n_steps: 10
+
+overfit:
+  bs: 1
