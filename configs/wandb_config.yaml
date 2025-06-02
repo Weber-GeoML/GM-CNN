@@ -1,6 +1,6 @@
 # Weights & Biases configuration
-project: gmcnn-cifar
-entity: null  # Replace with your entity (username or team name)
+project: gmcnn-cifar-raph
+entity: weber-geoml-harvard-university  # Replace with your entity (username or team name)
 tags:
   - GMCNN
   - CIFAR10

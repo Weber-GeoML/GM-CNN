@@ -1,5 +1,6 @@
 from .group_element import GroupElement
 
+
 class DihedralElement(GroupElement):
     """
     Class representing an element of a dihedral group.
@@ -45,10 +46,10 @@ class DihedralElement(GroupElement):
         Returns:
             DihedralElement: The inverse of this element.
         """
-        if self.f == 0:
-            return DihedralElement(-self.r, 0, self.n)
-        else:
-            return DihedralElement(self.r, 1, self.n)
+        if self.f == 0:  # r^a
+            return DihedralElement(-self.r, 0, self.n)  # r^{-a} so r^a r^{-a} = e
+        else:  # fr^a
+            return DihedralElement(self.r, 1, self.n)  # fr^a fr^a = r^{-a} r^a = e
 
     def __str__(self):
         """
@@ -57,4 +58,4 @@ class DihedralElement(GroupElement):
         Returns:
             str: The string representation.
         """
-        return f'f^{self.f} * r^{self.r}' if self.f else f'r^{self.r}'
+        return f"f^{self.f} * r^{self.r}" if self.f else f"r^{self.r}"

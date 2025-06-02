@@ -1,3 +1,6 @@
+"""This file contains the implementation of the group element abstract class."""
+
+
 class GroupElement:
     """
     Abstract base class representing a generic group element.

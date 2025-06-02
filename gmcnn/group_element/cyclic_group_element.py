@@ -1,4 +1,10 @@
+"""This file contains the implementation of the cyclic group element.
+
+This is just Z/nZ={0,1,2,...,n-1}
+"""
+
 from .group_element import GroupElement
+
 
 class CyclicGroupElement(GroupElement):
     """
@@ -50,4 +56,4 @@ class CyclicGroupElement(GroupElement):
         Returns:
             str: The string representation.
         """
-        return f'{self.k} (mod {self.N})'
+        return f"{self.k} (mod {self.N})"
