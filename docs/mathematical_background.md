@@ -26,12 +26,6 @@ Every element representable by `DihedralElement(r, f, n)` where:
 ### Definition
 Mathematical concept underlying the equivariance properties that will be implemented in the `layers/` module.
 
-### Examples in Computer Vision
-Applications that the `models/` module will target:
-- **Rotations**: Image rotation by multiples of 2π/n
-- **Reflections**: Image flipping operations
-- **Combined**: Compositions via `DihedralElement.product()`
-
 ## Equivariant Functions
 
 ### Definition
