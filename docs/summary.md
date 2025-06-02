@@ -26,9 +26,6 @@ gmcnn/
 ├── group_element/           # Group theory implementations
 │   ├── group_element.py     # Abstract base class for group elements
 │   └── dihedral_group_element.py  # Dihedral group element implementation
-├── layers/                  # Neural network layer implementations
-├── models/                  # Complete model architectures
-└── utils/                   # Utility functions and helpers
 ```
 
 ## Quick Start
