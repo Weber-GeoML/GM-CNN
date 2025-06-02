@@ -15,13 +15,6 @@
 - **Implementation**: All group axioms satisfied in `product()` and `inverse()` methods
 - **Verification**: Group properties (closure, associativity, identity, inverse) mathematically guaranteed
 
-### Modular Architecture
-The codebase structure supports extensibility:
-- **`group_element/`**: Foundation for any group type
-- **`layers/`**: Pluggable layer implementations using group operations
-- **`models/`**: Configurable architectures combining layers
-- **`utils/`**: Supporting functions for group computations
-
 ## Performance Considerations
 
 ### Efficient Group Operations
