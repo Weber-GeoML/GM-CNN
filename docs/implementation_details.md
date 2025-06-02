@@ -50,10 +50,6 @@ The codebase structure supports extensibility:
 - **`dihedral_group_element.py`**: Concrete dihedral group implementation
 - **Responsibilities**: Mathematical group operations, element representation
 
-### Neural Network Modules (Planned)
-- **`layers/`**: G-equivariant layer implementations
-- **`models/`**: Complete model architectures
-- **`utils/`**: Helper functions and utilities
 
 ### Dependencies Between Files
 1. `dihedral_group_element.py` inherits from `group_element.py`
@@ -61,22 +57,6 @@ The codebase structure supports extensibility:
 3. `models/` will compose layers from `layers/`
 4. `utils/` will provide supporting functions for all modules
 
-## Testing Strategy
-
-### Unit Tests
-- **Group Axioms**: Verification of mathematical properties in `dihedral_group_element.py`
-- **Edge Cases**: Boundary conditions for `product()` and `inverse()` methods
-- **Type Safety**: MyPy validation for all type annotations
-
-### Integration Tests (Planned)
-- **Layer Equivariance**: Verification that layers maintain group equivariance
-- **Model Training**: End-to-end training with equivariance preservation
-- **Performance**: Benchmarks comparing to standard CNNs
-
-### Mathematical Validation
-- **Group Properties**: Automated verification of closure, associativity, identity, inverse
-- **Equivariance**: Testing that transformations behave correctly
-- **Numerical Stability**: Ensuring robust computations
 
 ## Error Handling
 
@@ -90,37 +70,8 @@ The codebase structure supports extensibility:
 - **Modular Arithmetic**: Proper handling of wraparound in rotations
 - **Edge Cases**: Correct behavior for identity and boundary elements
 
-## Future Extensions
-
-### Additional Group Types
-Extensible design allows adding:
-- **Cyclic Groups**: `cyclic_group_element.py` following same pattern as `dihedral_group_element.py`
-- **Symmetric Groups**: More complex group structures
-- **Continuous Groups**: Extension to Lie groups
-
-### Advanced Features
-- **Steerable Filters**: Implementation in `layers/` using group structure
-- **Higher-order Equivariance**: Extended mathematical framework
-- **GPU Acceleration**: Optimized tensor operations for group convolutions
-
-### Code Organization
-- **Submodules**: Potential splitting of `group_element/` into specialized modules
-- **Plugin Architecture**: Dynamic loading of group implementations
-- **Configuration**: YAML/JSON configuration for model architectures
 
 ## Development Workflow
-
-### Code Standards
-- **Formatting**: Black code formatter
-- **Linting**: Ruff for modern Python standards
-- **Type Checking**: MyPy for static analysis
-- **Testing**: Pytest for comprehensive test suite
-
-### File Modification Guidelines
-1. **`group_element.py`**: Only modify to extend abstract interface
-2. **`dihedral_group_element.py`**: Maintain mathematical correctness in all changes
-3. **New Files**: Follow established patterns and type annotation standards
-4. **Documentation**: Update docstrings for any API changes
 
 ## Dependencies
 
