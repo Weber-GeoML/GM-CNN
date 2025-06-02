@@ -27,10 +27,4 @@ Every element representable by `DihedralElement(r, f, n)` where:
 ### File Relationships
 - `group_element.py`: Provides abstract interface for mathematical operations
 - `dihedral_group_element.py`: Implements specific group mathematics
-
-## Further Reading
-
-1. **Group Theory**: Dummit & Foote - "Abstract Algebra"
-2. **G-CNNs**: Cohen & Welling - "Group Equivariant Convolutional Networks"
-3. **Steerable CNNs**: Cohen & Welling - "Steerable CNNs"
-4. **Applications**: Weiler & Cesa - "General E(2)-Equivariant Steerable CNNs"
+  
