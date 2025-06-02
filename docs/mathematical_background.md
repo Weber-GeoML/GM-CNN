@@ -27,9 +27,6 @@ Every element representable by `DihedralElement(r, f, n)` where:
 ### File Relationships
 - `group_element.py`: Provides abstract interface for mathematical operations
 - `dihedral_group_element.py`: Implements specific group mathematics
-- `layers/`: Will use group operations for equivariant convolutions
-- `models/`: Will combine layers into complete architectures
-- `utils/`: Will provide supporting functions for group operations
 
 ## Further Reading
 
