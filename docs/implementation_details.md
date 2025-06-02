@@ -1,13 +1,6 @@
 # Implementation Details
 
-## Code Quality Standards
 
-This codebase follows strict Python coding standards enforced across all modules:
-
-- **Type Annotations**: Complete type hints in all files (`group_element.py`, `dihedral_group_element.py`)
-- **MyPy Compliance**: Static type checking passes for entire codebase
-- **Ruff Compliance**: Modern Python linting standards
-- **Docstrings**: Comprehensive documentation for all public APIs
 
 ## Design Patterns
 
