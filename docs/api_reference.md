@@ -59,10 +59,3 @@ The implementation in `dihedral_group_element.py` ensures:
 ### Import Structure
 - `dihedral_group_element.py` imports from `group_element.py`
 - Future modules in `layers/` will import `DihedralElement`
-- `models/` will use group operations through layer implementations
-- `utils/` may provide helper functions for group computations
-
-### Extension Points
-- `GroupElement` in `group_element.py` can be subclassed for new group types
-- `DihedralElement` provides template for implementing other finite groups
-- Abstract methods ensure consistent interface across group implementations
