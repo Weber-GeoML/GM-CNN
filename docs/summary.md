@@ -2,23 +2,6 @@
 
 ## Overview
 
-GMCNN is a Python library implementing Group-equivariant Convolutional Neural Networks (G-CNNs), specifically designed to work with dihedral group symmetries. G-CNNs are neural networks that respect the symmetries of their input data, making them particularly effective for tasks where rotational and reflectional symmetries are important (e.g., image classification, pattern recognition).
-
-## What are G-CNNs?
-
-Group-equivariant Convolutional Neural Networks extend traditional CNNs by incorporating group theory concepts:
-
-- **Equivariance**: If you transform the input (e.g., rotate an image), the network's internal representations transform in a predictable way
-- **Group Actions**: Mathematical operations that describe how symmetries act on data
-- **Dihedral Groups**: Groups that capture rotations and reflections, denoted as D_n (rotations by 2π/n and reflections)
-
-## Key Benefits
-
-1. **Reduced Parameter Count**: Sharing weights across group transformations
-2. **Improved Generalization**: Built-in understanding of symmetries
-3. **Data Efficiency**: Less training data needed due to symmetry constraints
-4. **Theoretical Guarantees**: Mathematical foundation ensures consistent behavior
-
 ## Repository Structure
 
 ```
@@ -27,10 +10,6 @@ gmcnn/
 │   ├── group_element.py     # Abstract base class for group elements
 │   └── dihedral_group_element.py  # Dihedral group element implementation
 ```
-
-## Quick Start
-
-The core functionality revolves around the `DihedralElement` class in `dihedral_group_element.py`, which provides methods like `product()` and `inverse()` for group operations.
 
 ## Documentation Structure
 
