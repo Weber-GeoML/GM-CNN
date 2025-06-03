@@ -180,6 +180,27 @@ def main(cfg: DictConfig):
                 vloss = criterion(voutputs, vlabels)
                 running_vloss += vloss
 
+                # Log batch level metrics to wandb
+                wandb.log(
+                    {
+                        "batch": epoch * len(train_loader) + i,
+                        "batch_loss": vloss,
+                    }
+                )
+
+                # Log validation predictions for visualization
+                if i % cfg.exp.trainer.log_every_n_steps == 0:
+                    pred_class = torch.argmax(voutputs, 1).item()
+                    true_class = vlabels.item()
+                    wandb.log(
+                        {
+                            "val_predictions": wandb.Image(
+                                vinputs[0],
+                                caption=f"Pred: {pred_class}, True: {true_class}",
+                            )
+                        }
+                    )
+
         avg_vloss = running_vloss / (i + 1)
         print("LOSS train {} valid {}".format(avg_loss, avg_vloss))
 
@@ -195,6 +216,75 @@ def main(cfg: DictConfig):
             wandb.save(model_path)
 
         scheduler.step(avg_vloss)
+
+        # Model Architecture Info
+        wandb.config.update(
+            {
+                "model_params": sum(
+                    p.numel() for p in model.parameters() if p.requires_grad
+                ),
+                "architecture": {
+                    "group_type": cfg.exp.model.group,
+                    "group_order": cfg.exp.model.order,
+                    "neighborhood_size": cfg.exp.model.nbr,
+                },
+                "optimization": {
+                    "optimizer": optimizer.__class__.__name__,
+                    "learning_rate": cfg.exp.model.lr,
+                    "scheduler": scheduler.__class__.__name__,
+                    "scheduler_params": {"mode": "min", "patience": 5, "factor": 0.7},
+                },
+            }
+        )
+
+        # During training:
+        wandb.log(
+            {
+                # Learning rate tracking
+                "learning_rate": optimizer.param_groups[0]["lr"],
+                # Per-batch metrics
+                "grad_norm": torch.nn.utils.clip_grad_norm_(
+                    model.parameters(), max_norm=1.0
+                ),
+                # Memory usage
+                "gpu_memory_allocated": (
+                    torch.cuda.memory_allocated() if torch.cuda.is_available() else 0
+                ),
+                "gpu_memory_cached": (
+                    torch.cuda.memory_reserved() if torch.cuda.is_available() else 0
+                ),
+            }
+        )
+
+        # Model checkpoints
+        wandb.save(f"model_{timestamp}_{epoch}")
+
+        # Log weight and gradient distributions
+        for name, param in model.named_parameters():
+            if param.requires_grad:
+                wandb.log(
+                    {
+                        f"weights/{name}_dist": wandb.Histogram(param.data.cpu()),
+                        f"gradients/{name}_dist": (
+                            wandb.Histogram(param.grad.cpu())
+                            if param.grad is not None
+                            else None
+                        ),
+                    }
+                )
+
+        # Log dataset statistics
+        wandb.config.update(
+            {
+                "dataset_stats": {
+                    "train_size": len(train_loader.dataset),
+                    "val_size": len(valid_loader.dataset),
+                    "test_size": len(test_loader.dataset),
+                    "batch_size": cfg.exp.data.batch_size,
+                    "num_workers": cfg.exp.data.num_workers,
+                }
+            }
+        )
 
     correct = 0
     total = 0
