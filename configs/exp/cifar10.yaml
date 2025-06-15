@@ -17,7 +17,7 @@ model:
 
 # Data
 data:
-  path: './data/cifar10/'
+  path: './data/cifar10/' 
   batch_size: 64
   num_workers: 4
 
