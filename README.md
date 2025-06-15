@@ -26,6 +26,12 @@ All experiments can be checked using `runner.py` script. A simple way to run the
 
 ### Running the tests
 
+Install pytest:
+
+```
+pip install pytest
+```
+
 ```
 # From the GM-CNN directory
 PYTHONPATH=$PYTHONPATH:. pytest tests/test_conv_utils.py -v
