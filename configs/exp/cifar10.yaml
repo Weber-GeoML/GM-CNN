@@ -17,9 +17,9 @@ model:
 
 # Data
 data:
-  path: /n/home10/dettel/AgAtGM-CNN/GM-CNN/data/cifar10/
-  batch_size: 64  # Reduced from 256 to avoid memory issues
-  num_workers: 4  # Reduced to minimize memory usage
+  path: './data/cifar10/' 
+  batch_size: 64
+  num_workers: 4
 
 # Training
 trainer:

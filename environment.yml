@@ -3,14 +3,16 @@ channels:
   - conda-forge
   - defaults
 dependencies:
-  - _libgcc_mutex=0.1
+# for cluster
   - _openmp_mutex=5.1
-  - ca-certificates=2023.12.12
-  - ld_impl_linux-64=2.38
-  - libffi=3.4.4
   - libgcc-ng=11.2.0
   - libgomp=11.2.0
   - libstdcxx-ng=11.2.0
+  - ld_impl_linux-64=2.38
+# for local
+  - _libgcc_mutex=0.1
+  - ca-certificates=2023.12.12
+  - libffi=3.4.4
   - ncurses=6.4
   - openssl=1.1.1w
   - pip=23.3.1

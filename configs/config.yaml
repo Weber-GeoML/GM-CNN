@@ -7,7 +7,7 @@ experiment:
   
 # Weights & Biases configuration
 wandb:
-  project: "gmcnn-cifar"  # Project name
-  entity: null  # Your wandb username or team name (leave as null if using default)
+  project: "gmcnn-cifar"  # Project name # rep
+  entity: "weber-geoml-harvard-university"  # Your wandb username or team name (leave as null if using default)
   mode: "online"  # Options: online, offline, disabled
   log_model: true  # Whether to save model checkpoints to wandb

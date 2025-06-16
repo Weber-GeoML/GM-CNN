@@ -24,6 +24,19 @@ This repository is structured as follows:
 
 All experiments can be checked using `runner.py` script. A simple way to run the experiment on CIFAR10: ``python runner.py exp=cifar10``
 
+### Running the tests
+
+Install pytest:
+
+```
+pip install pytest
+```
+
+```
+# From the GM-CNN directory
+PYTHONPATH=$PYTHONPATH:. pytest tests/test_conv_utils.py -v
+```
+
 ### License
 
 MIT. Other licenses may apply to third-party source code noted in file headers.
